@@ -1,14 +1,20 @@
 package ca.ualberta.cs.lonelytwitter;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by Corey on 2016-09-27.
  */
-public class TweetList {
+public class TweetList  {
     List<Tweet> tweets = new ArrayList<Tweet>();
-    public void add(Tweet tweet) {
+
+    public void addTweet (Tweet tweet) {
+        if (this.hasTweet(tweet)){
+            throw new IllegalArgumentException("Tried to add a duplicate tweet");
+        }
         tweets.add(tweet);
     }
 
@@ -20,7 +26,16 @@ public class TweetList {
         return tweets.get(i);
     }
 
-    public void delete(Tweet a) {
+    public void removeTweet(Tweet a) {
         tweets.remove(a);
+    }
+
+    public List<Tweet> getTweets() {
+        Collections.sort(tweets);
+        return tweets;
+    }
+
+    public int getCount() {
+        return tweets.size();
     }
 }

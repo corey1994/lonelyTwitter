@@ -94,7 +94,7 @@ public class LonelyTwitterActivity extends Activity {
 		super.onStart();
 		// loadFromFile(); // TODO replace this with elastic search
 		ElasticsearchTweetController.GetTweetsTask getTweetsTask = new ElasticsearchTweetController.GetTweetsTask();
-		getTweetsTask.execute("");
+		getTweetsTask.execute("RED");
 		try {
 			tweetList = getTweetsTask.get();
 		}
